@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     public Action OnjumpInput;
     public Action OnClimbInput;
     public Action OnCancelClimb;
+    public Action OnChangePOV;
 
     private void Update()
     {
@@ -79,7 +80,10 @@ public class InputManager : MonoBehaviour
 
         if (isPressChangePOVInput)
         {
-            Debug.Log("Change POV");
+            if (OnChangePOV != null)
+            {
+                OnChangePOV();
+            }
         }
     }
     private void CheckClimbInput()
